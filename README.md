@@ -4,7 +4,7 @@
 * Perl and Bash interperters
 
 ## Description
-This system takes as entry two plain text files in two languages (non-parallel corpora) and a bilingual dictionary, and gives a cross-lingual model based on syntactic dependencies. The dependency-based model is transparent, is stored in the folder `freq`, and is evaluated using a test dictionary. Notice that the syntactic parser can take more than 24 hours in large documents (1G or more). Syntactic parsing is carried out with the tool Linguakit, which is also included in the repository (just for English and Spanish). 
+This system takes as entry two plain text files in two languages (non-parallel corpora) and a bilingual dictionary, and gives a cross-lingual model based on syntactic dependencies. The dependency-based model is transparent, is stored in the folder `freq`, and is evaluated using a test dictionary. Notice that the syntactic parser can take more than 24 hours in large documents (1G or more). Syntactic parsing is carried out with [Linguakit](https://github.com/citiususc/linguakit). A simple version of Linguakit, just including PoS tagging and parsing for English and Spanish, is also included in the repository. If you wish install the full tool, go to its [github repository] (https://github.com/citiususc/linguakit).
 
 ## How to use
 ### Build a new model
