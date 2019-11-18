@@ -9,8 +9,6 @@ LING1="en"
 LING2="es"
 TAG1="E"
 TAG2="S"
-
-
 #### END PARAMETERS #######3
 
 ##Dowload cross-lingual models trained from Wikipedia
@@ -25,7 +23,7 @@ sh run_simil.sh $CORPUS  $LING1 $LING2 $TAG1 $TAG2 "N"
 sh run_simil.sh $CORPUS  $LING1 $LING2 $TAG1 $TAG2 "A"
 sh run_simil.sh $CORPUS  $LING1 $LING2 $TAG1 $TAG2 "V"
 
-## evaluating with the test dictionary (This is a not real evaluation as only words of the test dictionary are considered)
+## evaluating with the test dictionary (This is not a real evaluation as only words of the test dictionary are considered)
 echo "Evaluation of nouns"
 sh run_eval.sh $CORPUS $LING1 $LING2 "N"
 echo "Evaluation of adjectives"
