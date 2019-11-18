@@ -31,7 +31,7 @@ This uses a test dictionary to evaluate a pre-trained model from Wikipedia. The 
 This system participated at the Cross-Lingual task of SemEval 2017 achieving the best results among the systems that only used Wikipedia corpus as train resource:
 
 ```
-Gamallo, Pablo (2017). Citius at SemEval-2017 Task 2: [Cross-Lingual Similarity from Comparable Corpora and Dependency-Based Contexts](https://www.aclweb.org/anthology/S17-2034/), Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017), at ACL 2017, pp. 226-229, Vancouver, Canada. ISBN 978-1-945626-00-5. 
+Gamallo, Pablo (2017). Citius at SemEval-2017 Task 2: Cross-Lingual Similarity from Comparable Corpora and Dependency-Based Contexts, Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017), at ACL 2017, pp. 226-229, Vancouver, Canada. ISBN 978-1-945626-00-5. 
 ```
-
+[Download the paper](https://www.aclweb.org/anthology/S17-2034/)
 	
