@@ -14,7 +14,7 @@ You can build (and evaluate) an English-Spanish model from raw texts using the s
 sh Build_model.sh
 ```
 
-You just need two files in the corpus folder: `corpus-en.txt.gz´ and `corpus-es.txt.gz`.
+You just need two files in the corpus folder: `corpus-en.txt.gz' and `corpus-es.txt.gz'.
 
 If you want to use othe train dictionaries and othe languages, copy the new dictionary into the `dico` directory with the appropriate format and uncomment the line  `sh run_seedTemplates.sh`.
 
