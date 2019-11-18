@@ -14,9 +14,9 @@ You can build (and evaluate) an English-Spanish model from raw texts using the s
 sh Build_model.sh
 ```
 
-You just need two files in the corpus folder: `corpus-en.txt.gz` and `corpus-es.txt.gz`.
+You just need two files with raw text in the `corpus` folder. The file names can be: `corpus-en.txt.gz` and `corpus-es.txt.gz`.
 
-If you want to use othe train dictionaries and othe languages, copy the new dictionary into the `dico` directory with the appropriate format and uncomment the line  `sh run_seedTemplates.sh`.
+If you want to use other train dictionaries and other languages, copy the new dictionary into the `dico` folder with the appropriate format and uncomment the line `sh run_seedTemplates.sh` in order to create new seed bilingual templates.
 
 ### Download and evaluate a pre-trained model 
 To evalute a pre-trained model from English and Spanish Wikipedias, you can use the following script:
@@ -25,7 +25,13 @@ To evalute a pre-trained model from English and Spanish Wikipedias, you can use 
 sh Eval.sh
 ```
 
-This uses a test dictionary to evaluate a pre-trained model from Wikipedia. The evaluation scrip only considers the words including in the test dictionary, so it is not a real evaluation.   
+This uses a test dictionary to evaluate a pre-trained model from Wikipedia. The evaluation scrip only considers the words including in the test dictionary, so it is not a real evaluation.
 
+## How to cite
+This system participated at the Cross-Lingual task of SemEval 2017 achieving the best results among the systems that only used Wikipedia corpus as train resource:
+
+```
+Gamallo, Pablo (2017). Citius at SemEval-2017 Task 2: [Cross-Lingual Similarity from Comparable Corpora and Dependency-Based Contexts](https://www.aclweb.org/anthology/S17-2034/), Proceedings of the 11th International Workshop on Semantic Evaluation (SemEval-2017), at ACL 2017, pp. 226-229, Vancouver, Canada. ISBN 978-1-945626-00-5. 
+```
 
 	
