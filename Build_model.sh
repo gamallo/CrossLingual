@@ -17,8 +17,8 @@ TH=10 #threshold for frequency of words: >= 10 (change to 100 if the corpus is a
 
 ## BEGIN MODULES ###
 
-sh ./run_parse.sh $CORPUS $LING1
-sh ./run_parse.sh $CORPUS $LING2
+sh run_parse.sh $CORPUS $LING1
+sh run_parse.sh $CORPUS $LING2
 
 ## building the files with frequencies for the two languages
 sh run_freqs.sh $CORPUS $LING1 $TAG1 $TH
