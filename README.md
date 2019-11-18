@@ -4,7 +4,7 @@
 * Perl and Bash interperters
 
 ## Description
-This system takes as entry two plain text files in two languages (non-parallel corpora) and a bilingual dictionary, and gives a cross-lingual model based on syntactic dependencies. The dependency-based model is transparent, is stored in the folder `freq`, and is evaluated using a test dictionary. Notice that the syntactic parser can take more than 24 hours in large documents (1G or more). Syntactic parsing is carried out with [Linguakit](https://github.com/citiususc/linguakit). A simple version of Linguakit, just including PoS tagging and parsing for English and Spanish, is also included in this repository. If you wish install the full tool, go to its own [github repository](https://github.com/citiususc/linguakit).
+This system takes as entry two plain text files in two languages (non-parallel corpora) and a small bilingual dictionary with 5k entries, so as to build a cross-lingual model based on syntactic dependencies. The dependency-based model is transparent, is stored in the folder `freq`, and is evaluated using a test dictionary. The model can be used to induce new bilingual pairs. Notice that the syntactic parser can take more than 24 hours in large documents (1G or more). Syntactic parsing is carried out with [Linguakit](https://github.com/citiususc/linguakit). A simple version of Linguakit, just including PoS tagging and parsing for English, Spanish, Portuguese and Galician is also included in this repository. If you wish to install the full tool, go to its own [github repository](https://github.com/citiususc/linguakit).
 
 ## How to use
 ### Build a new model
@@ -19,13 +19,13 @@ You just need two files with raw text in the `corpus` folder. The file names can
 If you want to use other train dictionaries and other languages, copy the new dictionary into the `dico` folder with the appropriate format and uncomment the line `sh run_seedTemplates.sh` in order to create new seed bilingual templates.
 
 ### Download and evaluate a pre-trained model 
-To evalute a pre-trained model from English and Spanish Wikipedias, you can use the following script:
+To evalute an existing model pre-trained from English and Spanish wikipedias, you can use the following script:
 
 ```
 sh Eval.sh
 ```
 
-This uses a test dictionary to evaluate a pre-trained model from Wikipedia. The evaluation scrip only considers the words including in the test dictionary, so it is not a real evaluation.
+This script downloads a large pre-trained model and uses a test dictionary to evaluate it. The evaluation scrip only considers the words including in the test dictionary, so it is not a real evaluation.
 
 ## How to cite
 This system participated at the Cross-Lingual task of SemEval 2017 achieving the best results among the systems that only used Wikipedia corpus as train resource:
