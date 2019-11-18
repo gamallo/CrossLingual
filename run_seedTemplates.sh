@@ -62,11 +62,12 @@ cat $FREQFILES |$PROGSDIR/TirarMaiusculasCntxs.perl > $TMPDIR/__tmp
 SEEDFILES=${OUTPUTDIR}"/seedTemplates_"${PREFFIX}"-"${LING1}"-"${LING2}"_"*
 SEEDFILE=${OUTPUTDIR}"/format_seedTemplates_"${LING1}"-"${LING2}".txt"
 
-cat $SEEDFILES |sort |uniq -c >  $TMPDIR/__tmp1
-cat $TMPDIR/__tmp |$PROGSDIR/filtrarTemplates.perl $TMPDIR/__tmp1 $TAG1 $TAG2 > $SEEDFILE
+cat $SEEDFILES |sort |uniq -c >  $TMPDIR/__tmp3
+cat $TMPDIR/__tmp |$PROGSDIR/filtrarTemplates.perl $TMPDIR/__tmp3 $TAG1 $TAG2 > $SEEDFILE
 
 
 rm ${TMPDIR}"/__tmp1"
 rm ${TMPDIR}"/__tmp2"
+rm ${TMPDIR}"/__tmp3"
 rm ${TMPDIR}"/__tmp"
 rm ${TMPDIR}"/__freq"

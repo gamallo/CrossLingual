@@ -13,13 +13,11 @@ while ($line = <>) {
   if ($ling ne "") {
  
     $tmp = lc ($cntx);
-
-    $tmp =~ s/^robj\_/Robj\_/;
-    $tmp =~ s/^lobj\_/Lobj\_/;
-    $tmp =~ s/^rmod\_/Rmod\_/;
-    $tmp =~ s/^lmod\_/Lmod\_/;
-    $tmp =~ s/^modn\_/modN\_/;  
+    
     $tmp =~ s/\_card /\_CARD /;  
+    $tmp = ucfirst $tmp;
+    $tmp =~ s/^Modn\_/modN\_/;  
+
     $cntx = $tmp;
   
     print "$cntx $pal $f $ling\n" ;

@@ -13,6 +13,7 @@ $separador = "---" ;
 $/ = $separador;
 
 
+$COORD = "\^CONJ\$|\^Fz\$" ;
 
 $CountDep=0;
 
@@ -72,15 +73,15 @@ while ($sentence = <STDIN>) {
    ##coordinaçao
    if ($rel =~ /^Coord/) {
 	$Coord{$pos_h}{$pos_d}++;
-       # print    STDERR "--okkk  === #$triplet#\n\n";  
+      #  print    STDERR "--okkk  === pos_h: #$pos_h# -- pos_d: #$pos_d# --  #$triplet#\n\n";  
    }
 
-   if (defined $Coord{$pos_d} && $rel !~ /^Coord/) {
+   if ( (defined $Coord{$pos_d} || $cat_d =~/$COORD/)  && $rel !~ /^Coord/) {
        $TripletDep{$triplet}++;
-    #  print STDERR "DEP :: #$triplet#\n";
+     # print STDERR "DEP :: #$triplet#\n";
    }
 
-   if (defined $Coord{$pos_h} && $rel !~ /^Coord/) {
+   if ( (defined $Coord{$pos_h}  || $cat_h =~/$COORD/) && $rel !~ /^Coord/) {
        $TripletHead{$triplet}++;
      # print STDERR "HEAD :: #$triplet#\n";
    }
@@ -104,7 +105,7 @@ while ($sentence = <STDIN>) {
       $dependent = $dep . "_" . $cat . "_" . $pos ;
       #print STDERR "POS #$pos# --- DEP:#$dependent#\n"; 
       print "\($rel;$head;$dependent\)\n";
-      if ($cat_h eq "CONJ") {
+      if ($cat_h =~ /$COORD/) {
           foreach $p (keys %{$Coord{$pos_h}}) {
             $h = $Lemma{$p} ;
             $c = $Cat{$p} ;
@@ -120,19 +121,22 @@ while ($sentence = <STDIN>) {
    delete $TripletDep{$triplet}
  }
 
+ $dep_old="";
  foreach $triplet (keys %TripletHead) {
     # print STDERR "&&&&&&&&&&& #$triplet#\n";
    ($rel, $head, $dep) = split('\;', $triplet);
 
    ($head,$cat_h,$pos_h) = split ("_", $head);
 
-   ($dep,$cat_d,$pos_d) = split ("_", $dep);
+   ($dep_old,$cat_d,$pos_d) = split ("_", $dep);
 
    foreach $pos (keys %{$Coord{$pos_h}}) {
       $head = $Lemma{$pos} ;
       $cat = $Cat{$pos} ;
       $nucleo = $head . "_" . $cat . "_" . $pos ;
+     
       #print STDERR "POS #$pos# --- HEAD:#$nucleo#\n"; 
+    #  print STDERR "POS-d #$pos_d# --- DEP:#$dep#\n"; 
       print "\($rel;$nucleo;$dep\)\n";
       #delete $Coord{$pos_h}{$pos}
    }

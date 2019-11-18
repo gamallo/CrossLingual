@@ -17,17 +17,18 @@ TH=10 #threshold for frequency of words: >= 10 (change to 100 if the corpus is a
 
 ## BEGIN MODULES ###
 
+sh ./run_parse.sh $CORPUS $LING1
+sh ./run_parse.sh $CORPUS $LING2
 
 ## building the files with frequencies for the two languages
-#sh run_freqs.sh $CORPUS $LING1
-#sh run_freqs.sh $CORPUS $LING2
+sh run_freqs.sh $CORPUS $LING1 $TAG1 $TH
+sh run_freqs.sh $CORPUS $LING2 $TAG2 $TH
 
 ## creating seed files (only required if you change the train dictionary)
 ##sh run_seedTemplates.sh $CORPUS $LING1 $LING2 $TAG1 $TAG2
 
 ## creating bilingual templates (separated by categories: N, V, A)
-sh run_freqs_templates.sh $CORPUS $LING1 $LING2 $TAG1 $TAG2 $TH
-
+sh run_freqs_templates.sh $CORPUS $LING1 $LING2 $TAG1 $TAG2 
 
 ## inducing the bilingual dictionaries (just for the words in the test dictionary)
 sh run_simil.sh $CORPUS  $LING1 $LING2 $TAG1 $TAG2 "N"

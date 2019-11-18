@@ -27,7 +27,7 @@ while (<>) {
   $pal1 =~ s/\#[ES]$//,
   $pal2 =~ s/\#[ES]$//,
   
-  $dico{$pal1}{$pal2} = $sim;
+  $dico{$pal1}{$pal2} = $sim if ($sim>0);
   
 }
 

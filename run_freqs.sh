@@ -3,7 +3,7 @@
 PROGSDIR=./progs
 TMPDIR=./tmp
 OUTPUTDIR=./freq
-INPUTDIR=./corpus
+INPUTDIR=./parse
 
 ##Parametros:
 
@@ -17,23 +17,15 @@ TH=$4
 
 
 #input:
-INPUTFILE=${INPUTDIR}/$PREFFIX"-"$LING.txt
+INPUTFILE=${INPUTDIR}/parse_$PREFFIX"-"$LING.txt
 
 
 #outputs:
 
 OUTPUTFILE=$OUTPUTDIR"/freq_"${PREFFIX}"-"$LING".txt.gz"
 
-
-date
-
-## run Linguakit (instaled in folder ./Linguakit) 
-
-
-linguakit="./Linguakit/linguakit dep $LING"
-
-zcat $INPUTFILE  | $linguakit  | $PROGSDIR/subs.perl |$PROGSDIR/preps.perl |$PROGSDIR/subsDeps.sh |
-     	         $PROGSDIR/contextos_fromDeps.perl |
+zcat $INPUTFILE | $PROGSDIR/filtering_words_from_dp.perl $TH > tmp/words-$LING
+zcat $INPUTFILE  | $PROGSDIR/contextos_fromDeps_filtering.perl tmp/words-$LING |
   		 awk -v T=$TAG '{print $1, $2"#"T, $3" "T}'> $TMPDIR/__tmp
 
 

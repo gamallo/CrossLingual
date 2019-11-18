@@ -13,14 +13,12 @@ $L2= shift(@ARGV);
 open (INPUT, $file) or die "O ficheiro não pode ser aberto: $!\n";
 
 
-
-
 while ($line = <STDIN>) {
-      chop($line);
+      chomp($line);
       ($cntx, $pal, $freq, $ling) = split (" ", $line);
       $c1= $cntx . "\#" . $L1;
       $c2= $cntx . "\#" . $L2;
-      #print STDERR "$c1 - $c2\n";
+#      print STDERR "#$c1# - #$c2#\n";
 
       $Cntx{$c1}++ ;
       $Cntx{$c2}++ ;
@@ -34,8 +32,8 @@ while ($line = <INPUT>) {
       chop($line);
       ($tmp, $cntx1, $cntx2, $prob) = split (" ", $line);
       
-
-      if (defined $Cntx{$cntx1} && defined $Cntx{$cntx2}) {
+      #print STDERR "#$cntx1# - #$cntx2#\n";
+      if ($Cntx{$cntx1} && $Cntx{$cntx2}) {
         print "$line\n";
       }
 }

@@ -2179,6 +2179,7 @@ sub parse{
 #########SAIDA STANDARD DO ANALISADOR 
 			elsif ($flag eq "-a") {
 				##Escrever a oraçao que vai ser analisada:
+				$seq="";
 				if($pipe){#<ignore-line>
 					print "SENT::$seq\n";#<ignore-line>
 				}else{#<ignore-line>

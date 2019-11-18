@@ -86,14 +86,19 @@ while ($sentence = <STDIN>) {
       $cat = $Cat{$pos} ;
       $dependent = $dep . "_" . "$cat" . "_" . "$pos" ;
       #print STDERR "POS #$pos# --- DEP:#$dependent#\n"; 
-      print "($rel;$head;$dependent\)\n";
-      delete $Term{$pos_h}{$pos}
+      if ($Cat{$pos} !~ /^DT$|^PRP$/) {
+        print "($rel;$head;$dependent\)\n";
+      }
+      delete $Term{$pos_d}{$pos};
+
    }
-   delete $Triplet{$triplet}
- }
- foreach $x (keys %Lemma) {
-   delete $Lemma{$x};
-   delete $Cat{$x};
+   delete $Triplet{$triplet};
+   
+   
+ } 
+ foreach $x (keys %Cat) {
+        delete $Dep{$x};
+        delete $Cat{$x};
  }
 
 }
