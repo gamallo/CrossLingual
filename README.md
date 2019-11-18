@@ -1,8 +1,5 @@
 # Extraction of Cross-Lingual Models from Monolingual Corpora 
 
-## Authors:
-* Pablo Gamallo, CiTIUS, USC
-
 ## Requirements:
 * Perl and Bash interperters
 
