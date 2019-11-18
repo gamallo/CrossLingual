@@ -44,14 +44,14 @@ FREQFILES=$TMPDIR/__freq;
 
 
 echo "criar os seed templates a partir de do dico bilingue"
-cat $DICO |$PROGSDIR/generatingSimilarTemplates-"$LING1"-"$LING2".perl"  |
+cat $DICO |$PROGSDIR/generatingSimilarTemplates-${LING1}-${LING2}.perl  |
               sed "s/<b\\/>/\@/g" |
               $PROGSDIR/anotarSeedTemplates.x $TAG1 $TAG2 >  $SEED_DICO
 
 
 echo "criar os seed templates a partir de cognatos"
 
-cat  $INPUTFILE1 |$PROGSDIR/generatingSimilarTemplatesFromCognates-$LING1-$LING2".perl" $INPUTFILE2 |
+cat  $INPUTFILE1 |$PROGSDIR/generatingSimilarTemplatesFromCognates-${LING1}-${LING2}.perl $INPUTFILE2 |
                   $PROGSDIR/anotarSeedTemplates.x $TAG1 $TAG2 >  $SEED_COGNATOS
 
 echo "create final format seed file"
