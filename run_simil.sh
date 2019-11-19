@@ -27,6 +27,6 @@ cat $DICO |$PROGSDIR/pairs.perl $TAG1 $TAG2 $CAT > $TMPDIR/_pares_$CAT
 zcat $FREQDIR/freq_templates_$PREFIX"-"$LING1"-"$LING2"_Filtrado_"$CAT".txt.gz" > $TMPDIR/__freq
    
 cat  $TMPDIR/_pares_$CAT | $PROGSDIR/measures_cos.perl $TMPDIR/__freq |
-    gawk '{print $1, $2, $3}'| $PROGSDIR/Nbest.perl $TOP > $OUTPUTDIR"/"${PREFIX}"-"$LING1"-"$LING2"_"$CAT".txt" 
+    awk '{print $1, $2, $3}'| $PROGSDIR/Nbest.perl $TOP > $OUTPUTDIR"/"${PREFIX}"-"$LING1"-"$LING2"_"$CAT".txt" 
 
 
