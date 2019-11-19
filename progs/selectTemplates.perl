@@ -16,10 +16,10 @@ open (INPUT, $file) or die "O ficheiro de seeds não pode ser aberto: $!\n";
 $tmp="";
 while ($line = <INPUT>) {
       chop($line);
-      ($tmp, $cntx1, $cntx2, $prob) = split (" ", $line);
+      ($tmp,$cntx1, $cntx2, $prob) = split (" ", $line);
       $Template1{$cntx1}{$cntx2}++;
       $Template2{$cntx2}{$cntx1}++;
-      #print STDERR "$Template{$cntx2}\n";
+     # print STDERR "#$cntx1# - #$cntx2#\n";
 }
 
 while ($line = <STDIN>) {
@@ -28,14 +28,14 @@ while ($line = <STDIN>) {
       $c1= $cntx . "\#" . $L1;
       $c2= $cntx . "\#" . $L2;
       #print STDERR "$c1 - $c2\n";
-      if ( (defined $Template1{$c1}) && ($ling eq $L1) ) {
+      if ( ($Template1{$c1}) && ($ling eq $L1) ) {
         # print STDERR "$c1 -- $pal == $count\n";
          $count++;
          foreach $translation  (keys %{ $Template1{$c1} }) {
             printf "%s\;%s %s %d\n", $c1, $translation, $pal, $freq;
 	 }
       }
-      elsif ( (defined $Template2{$c2}) && ($ling eq $L2) ) {
+      elsif ( ($Template2{$c2}) && ($ling eq $L2) ) {
           #print STDERR "yessss\n";
          foreach $translation  (keys %{ $Template2{$c2} }) {
             printf "%s\;%s %s %d\n",  $translation, $c2,  $pal, $freq;
