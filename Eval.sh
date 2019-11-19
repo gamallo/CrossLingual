@@ -26,8 +26,10 @@ sh run_simil.sh $CORPUS  $LING1 $LING2 $TAG1 $TAG2 "V"
 ## evaluating with the test dictionary (This is not a real evaluation as only words of the test dictionary are considered)
 echo "Evaluation of nouns"
 sh run_eval.sh $CORPUS $LING1 $LING2 "N"
+echo ""
 echo "Evaluation of adjectives"
 sh run_eval.sh $CORPUS $LING1 $LING2 "A"
+echo ""
 echo "Evaluation of verbs"
 sh run_eval.sh $CORPUS $LING1 $LING2 "V"
 
