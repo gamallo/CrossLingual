@@ -32,5 +32,6 @@ sh run_eval.sh $CORPUS $LING1 $LING2 "A"
 echo ""
 echo "Evaluation of verbs"
 sh run_eval.sh $CORPUS $LING1 $LING2 "V"
-
-
+echo ""
+echo "TOTAL"
+sh run_eval_all.sh $CORPUS $LING1 $LING2

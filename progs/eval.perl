@@ -86,15 +86,15 @@ $cov = ( ($total-$miss) / $total)*100;
 print "Coverage: $cov\%\n";
 $total_sys = $total - $miss;
 $prec1 = $fp1 / ($total_sys);
-#print STDERR "fp1:#$fp1# - total_sistema:#$total_sys# total:#$total# - miss #$miss#\n";
+#print STDERR "tp1:#$fp1# - total_sistema:#$total_sys# total:#$total# - miss #$miss#\n";
 print "Prec1 = $prec1\n";
 
 $prec5 = ($fp1+$fp5) / ($total_sys);
-#print STDERR "fp5:#$fp5# - total:#$total#\n";
+#print STDERR "tp5:#$fp5# - total:#$total#\n";
 print "Prec5 = $prec5\n";
 
 $prec10 = ($fp1+$fp5+$fp10) / ($total_sys);
-#print STDERR "fp10:#$fp10# - total:#$total#\n";
+#print STDERR "tp10:#$fp10# - total:#$total#\n";
 print "Prec10 = $prec10\n";
 
 
